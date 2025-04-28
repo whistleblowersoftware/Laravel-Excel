@@ -4,8 +4,7 @@ namespace Maatwebsite\Excel\Concerns;
 
 use Illuminate\Support\Arr;
 
-trait MapsCsvSettings
-{
+trait MapsCsvSettings {
     /**
      * @var string
      */
@@ -15,6 +14,10 @@ trait MapsCsvSettings
      * @var string
      */
     protected static $enclosure = '"';
+    /**
+     * @var bool
+     */
+    protected static $enclosureRequired = true;
 
     /**
      * @var string
@@ -62,20 +65,20 @@ trait MapsCsvSettings
     protected static $testAutoDetect = true;
 
     /**
-     * @param  array  $config
+     * @param array $config
      */
-    public static function applyCsvSettings(array $config)
-    {
-        static::$delimiter            = Arr::get($config, 'delimiter', static::$delimiter);
-        static::$enclosure            = Arr::get($config, 'enclosure', static::$enclosure);
-        static::$lineEnding           = Arr::get($config, 'line_ending', static::$lineEnding);
-        static::$useBom               = Arr::get($config, 'use_bom', static::$useBom);
+    public static function applyCsvSettings(array $config) {
+        static::$delimiter = Arr::get($config, 'delimiter', static::$delimiter);
+        static::$enclosure = Arr::get($config, 'enclosure', static::$enclosure);
+        static::$enclosureRequired = Arr::get($config, 'enclosureRequired', static::$enclosureRequired);
+        static::$lineEnding = Arr::get($config, 'line_ending', static::$lineEnding);
+        static::$useBom = Arr::get($config, 'use_bom', static::$useBom);
         static::$includeSeparatorLine = Arr::get($config, 'include_separator_line', static::$includeSeparatorLine);
-        static::$excelCompatibility   = Arr::get($config, 'excel_compatibility', static::$excelCompatibility);
-        static::$escapeCharacter      = Arr::get($config, 'escape_character', static::$escapeCharacter);
-        static::$contiguous           = Arr::get($config, 'contiguous', static::$contiguous);
-        static::$inputEncoding        = Arr::get($config, 'input_encoding', static::$inputEncoding);
-        static::$outputEncoding       = Arr::get($config, 'output_encoding', static::$outputEncoding);
-        static::$testAutoDetect       = Arr::get($config, 'test_auto_detect', static::$testAutoDetect);
+        static::$excelCompatibility = Arr::get($config, 'excel_compatibility', static::$excelCompatibility);
+        static::$escapeCharacter = Arr::get($config, 'escape_character', static::$escapeCharacter);
+        static::$contiguous = Arr::get($config, 'contiguous', static::$contiguous);
+        static::$inputEncoding = Arr::get($config, 'input_encoding', static::$inputEncoding);
+        static::$outputEncoding = Arr::get($config, 'output_encoding', static::$outputEncoding);
+        static::$testAutoDetect = Arr::get($config, 'test_auto_detect', static::$testAutoDetect);
     }
 }
